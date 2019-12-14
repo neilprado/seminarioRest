@@ -11,49 +11,25 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class MusicaService {
-    private MusicaRepository repository;
 
-    public MusicaService(MusicaRepository repository) {
-        this.repository = repository;
-    }
 
     public Musica cadastrarMusica(MusicaRequest request){
-        Musica musica = new Musica();
-
-        musica.setDuracao(request.getDuracao());
-        musica.setGenero(request.getGenero());
-        musica.setLetra(request.getLetra());
-        musica.setNome(request.getNome());
-
-        return this.repository.save(musica);
+        return null;
     }
 
-    public Musica buscarMusica(Long id){
-        Musica musica = this.repository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Música não encontrada"));
+    public Musica buscarMusica(){
 
-        return musica;
+        return null;
     }
 
-    public Page<Musica> listarMusicas(Pageable pageable){
-        return this.repository.findAll(pageable);
+    public Page<Musica> listarMusicas(){
+        return null;
     }
 
-    public Musica atualizarMusica(Long id, MusicaRequest request){
-        Musica musica = this.repository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Música não encontrada"));
-
-        musica.setDuracao(request.getDuracao());
-        musica.setGenero(request.getGenero());
-        musica.setLetra(request.getLetra());
-        musica.setNome(request.getNome());
-
-        return this.repository.save(musica);
+    public Musica atualizarMusica(){
+        return null;
     }
 
-    public void removerMusica(Long id){
-        Musica musica = this.repository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Música não encontrada"));
-        this.repository.delete(musica);
+    public void removerMusica(){
     }
 }
