@@ -10,6 +10,7 @@ public class MusicaResponse {
     private int duracao;
     private String letra;
     private String genero;
+    private Long albumId;
 
     public String getNome() {
         return nome;
@@ -49,6 +50,14 @@ public class MusicaResponse {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
     }
 
     public static MusicaResponse from(Musica musica){

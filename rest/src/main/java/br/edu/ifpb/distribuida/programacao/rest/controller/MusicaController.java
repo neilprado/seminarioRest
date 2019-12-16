@@ -27,10 +27,7 @@ public class MusicaController {
         return null;
     }
 
-    public ResponseEntity<MusicaResponse> atualizarMusica(){
-        return null;
-
-    }
+    public ResponseEntity<MusicaResponse> atualizarMusica(){ return null; }
 
     public ResponseEntity<Void> removerMusica(){
         return null;

@@ -13,7 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class MusicaService {
 
 
-    public Musica cadastrarMusica(MusicaRequest request){
+    public Musica cadastrarMusica(){
         return null;
     }
 

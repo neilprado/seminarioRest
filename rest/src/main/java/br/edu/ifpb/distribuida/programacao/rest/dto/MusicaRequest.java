@@ -6,6 +6,15 @@ public class MusicaRequest {
     private int duracao;
     private String letra;
     private String genero;
+    private Long albumId;
+
+    public Long getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
+    }
 
     public String getNome() {
         return nome;

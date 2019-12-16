@@ -16,6 +16,7 @@ public class Musica {
     private int duracao;
     private String letra;
     private String genero;
+    private Album album;
 
     public String getNome() {
         return nome;
