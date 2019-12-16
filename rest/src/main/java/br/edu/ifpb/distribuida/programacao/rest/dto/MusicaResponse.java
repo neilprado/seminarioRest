@@ -68,6 +68,7 @@ public class MusicaResponse {
         response.setGenero(musica.getGenero());
         response.setLetra(musica.getLetra());
         response.setNome(musica.getNome());
+   //     response.setAlbumId(musica.getAlbum().getId());
 
         return response;
     }
@@ -81,6 +82,7 @@ public class MusicaResponse {
             response.setGenero(musica.getGenero());
             response.setLetra(musica.getLetra());
             response.setNome(musica.getNome());
+    //        response.setAlbumId(musica.getAlbum().getId());
 
             return response;
         });

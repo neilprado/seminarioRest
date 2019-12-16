@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Musica {
@@ -16,7 +17,17 @@ public class Musica {
     private int duracao;
     private String letra;
     private String genero;
+
+    //@ManyToOne
     private Album album;
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
 
     public String getNome() {
         return nome;
