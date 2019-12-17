@@ -12,24 +12,42 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 
+@RestController
 public class MusicaController {
+    private MusicaService musicaService;
 
-
-    public ResponseEntity<MusicaResponse> cadastrarMusica(){
-       return null;
+    public MusicaController(MusicaService musicaService) {
+        this.musicaService = musicaService;
     }
 
-    public ResponseEntity<Page<MusicaResponse>> listarMusicas(){
-        return null;
+    @PostMapping
+    public ResponseEntity<MusicaResponse> cadastrarMusica(@Valid @RequestBody MusicaRequest request){
+        Musica musica = this.musicaService.cadastrarMusica(request);
+        return ResponseEntity.ok(MusicaResponse.from(musica));
     }
 
-    public ResponseEntity<MusicaResponse> buscarMusica(){
-        return null;
+    @GetMapping
+    public ResponseEntity<Page<MusicaResponse>> listarMusicas(Pageable pageable){
+        Page<Musica> musicas = this.musicaService.listarMusicas(pageable);
+        return ResponseEntity.ok(MusicaResponse.from(musicas));
     }
 
-    public ResponseEntity<MusicaResponse> atualizarMusica(){ return null; }
+    @GetMapping("/{id}")
+    public ResponseEntity<MusicaResponse> buscarMusica(@Valid @PathVariable("id") long id){
+        Musica musica = this.musicaService.buscarMusica(id);
+        return ResponseEntity.ok(MusicaResponse.from(musica));
+    }
 
-    public ResponseEntity<Void> removerMusica(){
-        return null;
+    @PutMapping("/{id}")
+    public ResponseEntity<MusicaResponse> atualizarMusica(@Valid @PathVariable("id")long id,
+                                                          @Valid @RequestBody MusicaRequest request){
+        Musica musica = this.musicaService.atualizarMusica(id, request);
+        return ResponseEntity.ok(MusicaResponse.from(musica));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> removerMusica(@Valid @PathVariable("id") Long id){
+        this.musicaService.removerMusica(id);
+        return ResponseEntity.ok().build();
     }
 }
